@@ -29,7 +29,7 @@ defmodule LiveViewCollection.Collection do
     GenServer.call(__MODULE__, {:fetch, search, page})
   end
 
-  def default_page_size, do: 4
+  def default_page_size, do: 10
 
   ## Callbacks
 

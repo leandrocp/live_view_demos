@@ -46,3 +46,105 @@
   tweet_url: "https://twitter.com/lucianparvu/status/1109087821581742080"
   github_url:
 
+- name: "Adventure Capitalist clone"
+  tweet_url: "https://twitter.com/ericteubert/status/1107290579396907008"
+  github_url: "https://github.com/eteubert/open_adventure_capitalist/blob/master/lib/open_adventure_capitalist_web/live/game_live.ex"
+
+- name: "Push live updates"
+  tweet_url: "https://twitter.com/sm_debenedetto/status/1107336700282527746"
+  github_url:
+
+- name: "ObserverLive"
+  tweet_url: "https://twitter.com/_zorbash/status/1112859727845904385"
+  github_url: "https://github.com/zorbash/observer_live"
+  demo_url: "https://liveview.zorbash.com/"
+
+- name: "Match game"
+  tweet_url: "https://twitter.com/toranb/status/1113406660175958017"
+  github_url: "https://github.com/toranb/elixir-match/commit/bac39b8da84f3e672021e9d168589204a3a7682d"
+  demo_url: "https://elixirmatch.com/"
+
+- name: "BlackJack game"
+  tweet_url: "https://twitter.com/DanCarlito/status/1113586521762930688"
+  github_url: "https://github.com/dorilla/live_view_black_jack"
+  demo_url: "https://polite-angelic-beaver.gigalixirapp.com/"
+
+- name: "SeaBattle game"
+  tweet_url: "https://twitter.com/AlexanderTukta1/status/1113722931845242883"
+  github_url: "https://github.com/Sanchos01/Phoenix-Sea-Battle"
+  demo_url: "https://radiant-plateau-73240.herokuapp.com/"
+
+- name: "Rubular clone"
+  tweet_url: "https://twitter.com/clarkkampfe/status/1110910055535312900"
+  github_url: "https://github.com/ckampfe/rere/blob/master/lib/rere_web/live/rere_live.ex"
+
+- name: "Real-time chat"
+  tweet_url: "https://twitter.com/CassiusPacheco/status/1112015260880240640"
+  github_url: "https://github.com/CassiusPacheco/live_chat"
+  demo_url: "https://www.dropbox.com/s/nvr1f2tkmyo41kr/live_chat.mp4"
+  image: "real_time_chat.png"
+
+- name: "Live HTML/CSS"
+  tweet_url: "https://twitter.com/e110ca11272837c/status/1115181933539893248"
+  github_url:
+
+- name: "Live IMU sensor"
+  tweet_url: "https://twitter.com/joshnuss/status/1114761613985353728"
+  github_url: "https://github.com/joshnuss/live_imu"
+
+- name: "Bluetooth Low Energy HeartRate demo"
+  tweet_url: "https://twitter.com/ken_hamada/status/1114535963349225472"
+  github_url: "https://github.com/khamada611/ble_live_sample"
+
+- name: "Real-time communication with Zoom API"
+  tweet_url: "https://twitter.com/kblake/status/1113936890661457921"
+  github_url:
+
+- name: "BreakoutEx (breakout clone)"
+  tweet_url: "https://twitter.com/ElixirLibHunt/status/1116946024617005056"
+  github_url: "https://github.com/neslinesli93/breakoutex"
+  demo_url: "https://breakoutex.tommasopifferi.com/"
+  image: "breakoutex.png"
+
+- name: "Bike comparison"
+  tweet_url: "https://twitter.com/andrielfn/status/1116874613584220160"
+  github_url:
+  gist_url: "https://gist.github.com/andrielfn/6bbf0bf7fa644bfad304752bfae081f9"
+
+- name: "Calendar component"
+  tweet_url: "https://twitter.com/nblanco_fr/status/1117889640491413504"
+  github_url: "https://github.com/nicolasblanco/booking_calendar/blob/master/lib/booking_calendar_web/live/calendar_live.ex"
+
+- name: "Kubernetes dashboard"
+  tweet_url: "https://twitter.com/dmitriid/status/1118799470412611586"
+  github_url: "https://github.com/dmitriid/phreak"
+
+- name: "Markdown Live"
+  tweet_url: "https://twitter.com/elixirphoenix/status/1120774563611254785"
+  github_url: "https://github.com/nickdichev/markdown-live"
+  demo_url: "http://markdown.dichev.io/"
+  image: "markdown_live.png"
+
+- name: "Ant Farm"
+  tweet_url: "https://twitter.com/bigardone/status/1111161896177201152"
+  github_url: "https://github.com/bigardone/phoenix-liveview-ant-farm"
+
+- name: "UX keypad"
+  tweet_url: "https://twitter.com/ponyesteves/status/1125395620121010176"
+  github_url:
+  gist_url: "https://gist.github.com/ponyesteves/372cf186665ab464413096fd3855f0ca"
+
+- name: "Chat App"
+  demo_url: "https://elixirschool.com/blog/live-view-with-presence/"
+  tweet_url: "https://twitter.com/sm_debenedetto/status/1125024922030497792"
+  github_url: "https://github.com/SophieDeBenedetto/phat"
+
+- name: "Functional data structures"
+  tweet_url: "https://twitter.com/kayserzl/status/1124083298580430849"
+  github_url: "https://github.com/zkayser/pfds_visualizations"
+  image: "functional_data_structures.png"
+
+- name: "RFID Reader"
+  tweet_url: "https://twitter.com/vtim/status/1123982142684504068"
+  github_url:
+
