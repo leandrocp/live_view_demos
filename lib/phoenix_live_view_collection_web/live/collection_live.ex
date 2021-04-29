@@ -5,27 +5,40 @@ defmodule LiveViewCollectionWeb.CollectionLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    collection = Collection.fetch()
-    collection_count = length(collection)
-    {:ok, assign(socket, query: "", collection: Collection.fetch(), collection_count: collection_count)}
+    page = 1
+    search = ""
+    collection = Collection.fetch(page: page, search: search)
+    collection_count = Collection.count()
+
+    {:ok,
+     assign(socket,
+       page: page,
+       search: search,
+       collection: collection,
+       collection_count: collection_count
+     )}
   end
 
   @impl true
-  def handle_event("search", %{"search" => query}, socket) do
-    {:noreply, redirect_attrs(socket, query: query, page: 1)}
-  end
-
-  defp redirect_attrs(socket, attrs) do
-    query = attrs[:query] || socket.assigns[:query]
-
-    path = Routes.collection_path(socket, :index, query: query)
-    push_patch(socket, to: path)
+  def handle_event("search", %{"search" => search}, socket) do
+    path = Routes.collection_path(socket, :index, search: search, page: 1)
+    socket = push_patch(socket, to: path)
+    {:noreply, socket}
   end
 
   @impl true
   def handle_params(params, _url, socket) do
-    query = Map.get(params, "query", "")
-    collection = Collection.fetch(query)
-    {:noreply, assign(socket, collection: collection, query: query)}
+    search = Map.get(params, "search", "")
+    page = params |> Map.get("page", "1") |> String.to_integer()
+    collection = Collection.fetch(search: search, page: page)
+    {:noreply, assign(socket, collection: collection, search: search, page: page)}
+  end
+
+  ## Helpers
+
+  def pages(search) do
+    collection_count = Collection.count(search)
+    pages = (collection_count / Collection.default_page_size()) |> Float.ceil() |> round()
+    if pages <= 1, do: 1, else: pages
   end
 end
