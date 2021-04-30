@@ -16,3 +16,4 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 - [ ] Display related github repo/gist
 - [ ] Display demo link
 - [ ] Allow to change per page pagination
+- [ ] Add link to our github repo

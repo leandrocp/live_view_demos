@@ -12,7 +12,7 @@ config :phoenix_live_view_collection, :env, :prod
 # which you should run after static files are built and
 # before starting your production server.
 config :phoenix_live_view_collection, LiveViewCollectionWeb.Endpoint,
-  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+  url: [scheme: "https", host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
   check_origin: true,
