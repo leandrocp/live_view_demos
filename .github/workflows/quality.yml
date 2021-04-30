@@ -20,8 +20,6 @@ jobs:
     steps:
     - name: checkout
       uses: actions/checkout@v2
-      with:
-        fetch-depth: 0
     - name: setup
       uses: erlef/setup-beam@v1
       with:
@@ -35,7 +33,7 @@ jobs:
           deps
           _build
           priv/plts
-        key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
+        key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-dev-${{ hashFiles('mix.lock') }}
     - name: Install Deps
       if: steps.mix-cache.outputs.cache-hit != 'true'
       run: |
@@ -69,7 +67,7 @@ jobs:
           deps
           _build
           priv/plts
-        key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-${{ hashFiles('mix.lock') }}
+        key: ${{ runner.os }}-${{ matrix.otp }}-${{ matrix.elixir }}-dev-${{ hashFiles('mix.lock') }}
     - name: Warnings as errors
       run: mix compile --warnings-as-errors
     - name: Unused deps
