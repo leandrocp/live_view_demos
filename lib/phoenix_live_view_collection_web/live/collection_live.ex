@@ -1,4 +1,5 @@
 defmodule LiveViewCollectionWeb.CollectionLive do
+  @moduledoc "Collection Live Page"
   use LiveViewCollectionWeb, :live_view
   require Logger
   alias LiveViewCollection.Collection

@@ -60,8 +60,6 @@ defmodule PhoenixLiveViewCollection.CollectionTest do
       assert Collection.fetch(search: "") == @first_page
       assert Collection.fetch(search: "entry") == @first_page
       assert Collection.fetch(search: "entry 11") == [%{"html" => "entry 11"}]
-      # TODO: sanitize input
-      # assert Collection.fetch(search: "\\") == []
     end
 
     test "fetch pagination and search" do

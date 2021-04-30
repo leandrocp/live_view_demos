@@ -1,5 +1,7 @@
 use Mix.Config
 
+config :pulse, :env, :dev
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #

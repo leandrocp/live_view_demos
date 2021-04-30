@@ -1,4 +1,5 @@
 defmodule LiveViewCollection.Collection do
+  @moduledoc "Source of truth for collection entries"
   use GenServer
   require Logger
 
