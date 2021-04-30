@@ -130,8 +130,9 @@ defmodule LiveViewCollection.Collection do
   defp do_filter(collection, search) do
     {:ok, regex} = Regex.compile(search, "i")
 
-    Enum.filter(collection, fn %{"html" => search} ->
-      String.match?(search, regex)
+    Enum.filter(collection, fn
+      %{"html" => search} -> String.match?(search, regex)
+      _ -> false
     end)
   end
 
