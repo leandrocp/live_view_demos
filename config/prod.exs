@@ -1,6 +1,6 @@
 use Mix.Config
 
-config :pulse, :env, :prod
+config :phoenix_live_view_collection, :env, :prod
 
 # For production, don't forget to configure the url host
 # to something meaningful, Phoenix uses this information
@@ -12,8 +12,11 @@ config :pulse, :env, :prod
 # which you should run after static files are built and
 # before starting your production server.
 config :phoenix_live_view_collection, LiveViewCollectionWeb.Endpoint,
-  url: [host: "example.com", port: 80],
-  cache_static_manifest: "priv/static/cache_manifest.json"
+  url: [host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
+  cache_static_manifest: "priv/static/cache_manifest.json",
+  server: true,
+  check_origin: true,
+  secret_key_base: Map.fetch!(System.get_env(), "SECRET_KEY_BASE")
 
 # Do not print debug messages in production
 config :logger, level: :info
