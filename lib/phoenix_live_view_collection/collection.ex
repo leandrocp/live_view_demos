@@ -3,7 +3,7 @@ defmodule LiveViewCollection.Collection do
   use GenServer
   require Logger
 
-  @default_page_size 10
+  @default_page_size 15
 
   @spec start_link(keyword()) :: GenServer.on_start()
   def start_link(opts \\ []) do

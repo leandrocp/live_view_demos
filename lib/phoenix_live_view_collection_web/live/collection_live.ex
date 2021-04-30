@@ -6,14 +6,14 @@ defmodule LiveViewCollectionWeb.CollectionLive do
 
   @impl true
   def mount(_params, _session, socket) do
-    page = 1
+    current_page = 1
     search = ""
-    collection = Collection.fetch(page: page, search: search)
+    collection = Collection.fetch(page: current_page, search: search)
     collection_count = Collection.count()
 
     {:ok,
      assign(socket,
-       page: page,
+       current_page: current_page,
        search: search,
        collection: collection,
        collection_count: collection_count
@@ -32,7 +32,7 @@ defmodule LiveViewCollectionWeb.CollectionLive do
     search = Map.get(params, "search", "")
     page = params |> Map.get("page", "1") |> String.to_integer()
     collection = Collection.fetch(search: search, page: page)
-    {:noreply, assign(socket, collection: collection, search: search, page: page)}
+    {:noreply, assign(socket, collection: collection, search: search, current_page: page)}
   end
 
   ## Helpers
