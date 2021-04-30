@@ -12,11 +12,17 @@ defmodule LiveViewCollection.Application do
       # Start the PubSub system
       {Phoenix.PubSub, name: LiveViewCollection.PubSub},
       # Start the Endpoint (http/https)
-      LiveViewCollectionWeb.Endpoint,
+      LiveViewCollectionWeb.Endpoint
       # Start a worker by calling: LiveViewCollection.Worker.start_link(arg)
       # {LiveViewCollection.Worker, arg}
-      {LiveViewCollection.Collection, []}
     ]
+
+    children =
+      if Mix.env() == :test do
+        children
+      else
+        children ++ [{LiveViewCollection.Collection, []}]
+      end
 
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options

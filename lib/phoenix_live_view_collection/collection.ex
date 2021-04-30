@@ -2,6 +2,8 @@ defmodule LiveViewCollection.Collection do
   use GenServer
   require Logger
 
+  @default_page_size 10
+
   @spec start_link(keyword()) :: GenServer.on_start()
   def start_link(opts \\ []) do
     GenServer.start_link(__MODULE__, opts, name: __MODULE__)
@@ -19,35 +21,56 @@ defmodule LiveViewCollection.Collection do
 
   @spec count(String.t()) :: non_neg_integer()
   def count(search) do
+    search = cast_search(search)
     GenServer.call(__MODULE__, {:count, search})
+  end
+
+  @spec pages(String.t()) :: pos_integer()
+  def pages(search) do
+    collection_count = count(search)
+    pages = (collection_count / @default_page_size()) |> Float.ceil() |> round()
+    if pages <= 1, do: 1, else: pages
   end
 
   @spec fetch(Keyword.t()) :: [map()]
   def fetch(opts \\ []) do
-    search = Keyword.get(opts, :search)
-    page = Keyword.get(opts, :page, 1)
+    search = opts |> Keyword.get(:search) |> cast_search()
+    page = opts |> Keyword.get(:page) |> cast_page()
     GenServer.call(__MODULE__, {:fetch, search, page})
   end
 
-  def default_page_size, do: 10
+  defp cast_search(search) when is_binary(search) do
+    String.trim(search)
+  end
+
+  defp cast_search(_), do: ""
+
+  defp cast_page(page) when is_integer(page) and page >= 1, do: page
+  defp cast_page(_), do: 1
 
   ## Callbacks
 
   @impl GenServer
-  def init(state) do
-    send(self(), :load_collection)
-    {:ok, state}
+  def init(opts) do
+    if entries = Keyword.get(opts, :override_entries) do
+      {:ok, entries}
+    else
+      send(self(), :load_collection)
+      {:ok, []}
+    end
   end
 
   @impl GenServer
   def handle_info(:load_collection, _state) do
     collection =
       with {:ok, collection} <- YamlElixir.read_from_file(Path.join(File.cwd!(), "collection.yml")),
-           {:ok, collection} <- request_embeded_tweets(collection) do
+           :ok <- Logger.debug(fn -> "[Collection] Loading #{length(collection)} entries from collection.yml" end),
+           {:ok, collection} <- request_embeded_tweets(collection),
+           :ok <- Logger.debug(fn -> "[Collection] Loaded #{length(collection)} entries from twitter" end) do
         collection
       else
         {:error, error} ->
-          Logger.error(fn -> "Error loading collection: #{inspect(error)}" end)
+          Logger.error(fn -> "[Collection] Error loading collection: #{inspect(error)}" end)
           []
       end
 
@@ -67,7 +90,7 @@ defmodule LiveViewCollection.Collection do
         tweet
       else
         {:error, error} ->
-          Logger.error(fn -> "Error fetching embeded tweet: #{inspect(error)}" end)
+          Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{inspect(error)}" end)
           nil
       end
     end
@@ -101,7 +124,7 @@ defmodule LiveViewCollection.Collection do
     {:reply, result, state}
   end
 
-  defp do_filter(collection, search) when is_nil(search) or search == "", do: collection
+  defp do_filter(collection, ""), do: collection
 
   defp do_filter(collection, search) do
     {:ok, regex} = Regex.compile(search, "i")
@@ -111,11 +134,7 @@ defmodule LiveViewCollection.Collection do
     end)
   end
 
-  defp do_paginate(collection, page) when is_nil(page) or page <= 0 do
-    do_paginate(collection, 1)
-  end
-
   defp do_paginate(collection, page) do
-    Enum.slice(collection, (page - 1) * default_page_size(), default_page_size())
+    Enum.slice(collection, (page - 1) * @default_page_size(), @default_page_size())
   end
 end

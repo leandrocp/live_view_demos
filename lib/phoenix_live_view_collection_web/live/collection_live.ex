@@ -37,8 +37,6 @@ defmodule LiveViewCollectionWeb.CollectionLive do
   ## Helpers
 
   def pages(search) do
-    collection_count = Collection.count(search)
-    pages = (collection_count / Collection.default_page_size()) |> Float.ceil() |> round()
-    if pages <= 1, do: 1, else: pages
+    Collection.pages(search)
   end
 end
