@@ -12,8 +12,10 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 
 ## Roadmap
 
+- [ ] Loading animation
 - [ ] Sanitize search input
+- [ ] Add link to our github repo
+- [ ] 4 columns + increase entries per page for larger screens
 - [ ] Display related github repo/gist
 - [ ] Display demo link
 - [ ] Allow to change per page pagination
-- [ ] Add link to our github repo
