@@ -46,6 +46,35 @@
   tweet_url: "https://twitter.com/lucianparvu/status/1109087821581742080"
   github_url:
 
+- name: "SVG LiveView 2"
+  tweet_url: "https://twitter.com/mmmries/status/1117303569974042624"
+  github_url: "https://github.com/mmmries/showoff/blob/master/lib/showoff_web/live/scratchpad_live.ex"
+  demo_url: "https://showoff.riesd.com/"
+
+- name: "Server-side calculator"
+  tweet_url: "https://twitter.com/smeade/status/1107180735939543041"
+  github_url: "https://github.com/smeade/phoenix_live_view_example/blob/master/lib/demo_web/live/calc_live/index.ex"
+
+- name: "Todos"
+  tweet_url: "https://twitter.com/smeade/status/1106607520666148864"
+  github_url: "https://github.com/smeade/phoenix_live_view_example_todos"
+
+- name: "Live Tinkering"
+  tweet_url: "https://twitter.com/alephnaught2tog/status/1106736339502989312"
+  github_url: "https://github.com/aleph-naught2tog/live_tinkering"
+
+- name: "Word Game"
+  tweet_url: "https://twitter.com/hokram/status/1108464747937255426"
+  github_url:
+
+- name: "Re-computing and re-rendering over 200 rows"
+  tweet_url: "https://twitter.com/geolessel/status/1108382138192134144"
+  github_url:
+
+- name: "Table editor"
+  tweet_url: "https://twitter.com/pihurt/status/1106920643604475907"
+  github_url: "https://github.com/hurty/phoenix_live_view_example/blob/master/lib/demo_web/live/tables_live.ex"
+
 - name: "Adventure Capitalist clone"
   tweet_url: "https://twitter.com/ericteubert/status/1107290579396907008"
   github_url: "https://github.com/eteubert/open_adventure_capitalist/blob/master/lib/open_adventure_capitalist_web/live/game_live.ex"
@@ -147,4 +176,273 @@
 - name: "RFID Reader"
   tweet_url: "https://twitter.com/vtim/status/1123982142684504068"
   github_url:
+
+- name: "LetterSoup Game (Boggle clone)"
+  tweet_url: "https://twitter.com/_martinS_/status/1123775286863192065"
+  github_url: "https://github.com/martinstannard/soup"
+  demo_url: "https://lettersoup.herokuapp.com/"
+  image: "letter_soup.png"
+
+- name: "Keeping notes"
+  tweet_url: "https://twitter.com/joaomdmoura/status/1123051722497232897"
+  github_url:
+
+- name: "Game of Life"
+  tweet_url: "https://twitter.com/backa/status/1111623881670959106"
+  github_url:
+
+- name: "Falling Tiles game"
+  demo_url: "https://falling-tiles.angelika.me/"
+  tweet_url: "https://twitter.com/atyborska93/status/1127562362293293056"
+  github_url: "https://github.com/angelikatyborska/falling_blocks"
+  image: "falling_tiles.png"
+
+- name: "Kanban board"
+  demo_url: "https://phoenix-live-view-kanban-board.herokuapp.com/"
+  tweet_url:
+  github_url: "https://github.com/amberbit/board"
+  image: "kanban_board.png"
+
+- name: "Trivia Multiplayer"
+  tweet_url: "https://twitter.com/ramortegui/status/1132037413453291520"
+  github_url: "https://github.com/ramortegui/phoenix_trivia"
+
+- name: "Monitoring dashboard"
+  tweet_url: "https://twitter.com/kerryb/status/1134414659660988416"
+  github_url:
+
+- name: "Multi-step Form"
+  tweet_url: "https://twitter.com/tuacker/status/1134374836338352128"
+  github_url: "https://github.com/tuacker/phoenix_live_view_form_steps/"
+
+- name: "Piano roll"
+  tweet_url: "https://twitter.com/thibaut_barrere/status/1135477796908744705"
+  github_url:
+
+- name: "Star Polygon demo"
+  tweet_url: "https://twitter.com/mudphone/status/1140312333543043072"
+  github_url:
+  demo_url: "https://www.pasdechocolat.com/starpolygon/"
+  image: "star_polygon.png"
+
+- name: "HackerNews clone"
+  tweet_url: "https://twitter.com/ashishwadekar/status/1143596972345049088"
+  github_url: "https://github.com/ashishwadekar/live_hacker_news"
+
+- name: "Tetris Kachori Game"
+  tweet_url: "https://twitter.com/IamSandeshSoni/status/1167036472924360705"
+  github_url:
+  demo_url: "http://tetris.sandeshsoni.com/"
+  image: "tetris.png"
+
+- name: "Broadway Dashboard"
+  tweet_url: "https://twitter.com/MarlusSaraiva/status/1167821259603763205"
+  github_url:
+
+- name: "Tic Tac Toe game"
+  tweet_url: "https://twitter.com/Kanmaniselvan/status/1169395438597869569"
+  github_url:
+
+- name: "Bear Game"
+  tweet_url:
+  github_url: "https://github.com/nickdichev/markdown-live"
+  demo_url: "http://palegoldenrod-grown-ibis.gigalixirapp.com/bear_game"
+  image: "bear_game.png"
+
+- name: "Bear Necessities"
+  tweet_url:
+  github_url: "https://github.com/DefactoSoftware/BearNecessities"
+  demo_url: "https://unbearable.nl/"
+  image: "bear_necessities.png"
+
+- name: "Milwaukee Property Search"
+  tweet_url:
+  github_url: "https://github.com/mitchellhenke/mprop"
+  demo_url: "https://mprop.mitchellhenke.com/"
+  image: "milwaukee_property_search.png"
+
+- name: "Pixels with Frenemies"
+  tweet_url:
+  github_url: "https://github.com/JohnB/phoenix_live_view_example"
+  demo_url: "https://stormy-earth-96381.herokuapp.com/collaborative_canvas"
+  image: "pixels_with_frenemies.png"
+
+- name: "Table Filter"
+  tweet_url:
+  github_url: "https://github.com/imartinat/phoenix_live_view_tablefilter"
+  demo_url: "https://medium.com/@imartinat/table-filter-with-phoenix-liveview-cb30508e9fc0"
+  image: "table_filter.png"
+
+- name: "Empex SVG Logo"
+  tweet_url:
+  github_url: "https://github.com/empex2019liveview/empexlogo"
+  demo_url: "https://anunknown.dev/demo/empex"
+  image: "empex.png"
+
+- name: "Hangman Game"
+  tweet_url:
+  github_url: "https://github.com/empex2019liveview/hangman"
+  demo_url: "https://anunknown.dev/demo/hangman"
+  image: "hangman.png"
+
+- name: "Towers of Hanoi Game"
+  tweet_url:
+  github_url: "https://github.com/empex2019liveview/hanoi"
+  demo_url: "https://anunknown.dev/demo/hanoi"
+  image: "towers_of_hanoi.png"
+
+- name: "Debounce"
+  tweet_url:
+  github_url:
+  demo_url: "https://dev.to/tizpuppi/phoenix-live-view-debounce-4icf"
+  image: "debounce.png"
+
+- name: "Blast Game (Asteroids clone)"
+  tweet_url:
+  github_url: "https://github.com/team-alembic/lambdajam-blast"
+  demo_url: "https://blast.alembic.com.au/"
+  image: "blast.png"
+
+- name: "Trivia"
+  tweet_url:
+  github_url: "https://github.com/ramortegui/phoenix_trivia"
+  demo_url: "https://phx-trivia.gigalixirapp.com/"
+  image: "trivia.png"
+
+- name: "Conways Game of Life"
+  tweet_url:
+  github_url: "https://github.com/horneber/phoenix-lifeview-conway"
+  demo_url: "https://intense-oasis-66457.herokuapp.com/"
+  image: "conways_game_of_life.png"
+
+- name: "Particle System on HTML5 Canvas"
+  tweet_url: "https://twitter.com/petecorey/status/1167949691511640064"
+  github_url: "https://github.com/pcorey/live_canvas"
+  demo_url: "https://frozen-coast-73544.herokuapp.com/"
+
+- name: "Ecto Associations in LiveView"
+  tweet_url: "https://twitter.com/acangiano/status/1167484998867398657"
+  github_url:
+  demo_url: "https://dennisbeatty.com/2019/08/20/ecto-associations-in-phoenix-liveview-one-to-many.html"
+
+- name: "Quick Chat Engine"
+  tweet_url: "https://twitter.com/FiqusCoop/status/1166728670704222208"
+  github_url: "https://github.com/fiqus/lqchatex"
+  demo_url: "https://lqchatex.fiqus.coop/"
+  image: "quick_chat_engine.png"
+
+- name: "Sudoku solver"
+  tweet_url: "https://twitter.com/dsdshcym/status/1154693783771963393"
+  github_url: "https://github.com/dsdshcym/phoenix_live_view_sudoku"
+
+- name: "Phoenix LiveView Collection"
+  tweet_url: "https://twitter.com/leandrocesquini/status/1166519369612038144"
+  github_url: "https://github.com/leandrocp/phoenix-liveview-collection"
+  demo_url: "https://live-view-collection.herokuapp.com/"
+  image: "liveview_collection.png"
+
+- name: "Zero Cards Game"
+  tweet_url: "https://twitter.com/MRonErlang/status/1172084355063304197"
+  github_url: "https://github.com/altenwald/zero"
+
+- name: "Gluster dashboard"
+  tweet_url: "https://twitter.com/aravindavk/status/1167479502747783169"
+  github_url:
+  demo_url: "https://aravindavk.in/blog/elixir-phoenix-liveview-gluster-dashboard/"
+  image: "gluster_dashboard.gif"
+
+- name: "SQL Client"
+  tweet_url: "https://twitter.com/ian_sparky/status/1172510067867967490"
+  github_url:
+
+- name: "Uno Multiplayer Game"
+  tweet_url: "https://twitter.com/_nboisvert/status/1173414629520871424"
+  github_url:
+  demo_url: "https://unox.sandbox.nboisvert.com/"
+
+- name: "Kanban board"
+  tweet_url: "https://twitter.com/IamSandeshSoni/status/1175888883264835584"
+  github_url: "https://github.com/spawnfest/Beam_India/tree/master/server"
+
+- name: "Markdown to Slideshow"
+  tweet_url: "https://twitter.com/pablobrud/status/1175918144721948672"
+  github_url: "https://github.com/spawnfest/prexent"
+  
+- name: "Block Puzzle"
+  tweet_url: "https://twitter.com/yujiyokoo/status/1221629234629599234"
+  github_url: "https://gitlab.com/yujiyokoo/block_puzzle_live_view"
+  demo_url: "https://exciting-ancient-squamata.gigalixirapp.com/game"
+
+- name: "State Machine Multi-step Form"
+  tweet_url: "https://twitter.com/entropealab/status/1202673722404081664"
+  github_url: "https://github.com/entone/states_language_live_view"
+  
+- name: "Line 98 - ballgames"
+  tweet_url: "https://twitter.com/MaximVerbovoy/status/1221536408395026438"
+  github_url: "https://github.com/vermaxik/line98"
+  demo_url: "https://ballgames.gigalixirapp.com"
+
+- name: "Perlin Noise & colors"
+  tweet_url: "https://twitter.com/miladamilli/status/1227955137659985920"
+  github_url:
+  
+- name: "Phoenix LiveView with AlpineJS"
+  tweet_url: "https://twitter.com/FullstackPhoen1/status/1245039761150050304"
+  demo_url: "https://fullstackphoenix.com/tutorials/combine-phoenix-liveview-with-alpine-js"
+
+- name: "Card game"
+  tweet_url:  "https://twitter.com/benfreu/status/1251088437115052032"
+  demo_url: "https://ohell.benfreu.dev/"
+
+- name: "Real-time Twitter-like microblog"
+  tweet_url: "https://twitter.com/CassiusPacheco/status/1252597145565147137"
+  github_url: "https://github.com/CassiusPacheco/ex_micro_blog"
+  demo_url: "https://exmicroblog.herokuapp.com/"
+
+- name: "LiveView with Temple template library"
+  tweet_url: "https://twitter.com/shritesh/status/1252016488074088448"
+
+- name: "Real-time SVG chart"
+  tweet_url: "https://twitter.com/stevegraham/status/1255566636838338561"
+
+- name: "SVG state machine"
+  tweet_url: "https://twitter.com/antoine_reyt/status/1255875223011889157"
+  github_url: "https://github.com/antoinereyt/gen_statem_meetup"
+
+- name: "DatePicker"
+  tweet_url: "https://twitter.com/andyjones11/status/1257351074970812416"
+
+- name: "Regext tester"
+  tweet_url: "https://twitter.com/bernheisel/status/1262267358720266241"
+  demo_url: "https://elixir-utilities.herokuapp.com"
+
+- name:  "LiveView diff algorithm"
+  tweet_url: "https://twitter.com/_fifwb/status/1276954973830393858"
+
+- name: "Real-time accessibility and HTML validator"
+  tweet_url: "https://twitter.com/jaimeiniesta/status/1279103234674700290"
+  demo_url: "https://vimeo.com/435134538"
+
+- name: "Bookmarking with Azure Cognitive"
+  tweet_url: "https://twitter.com/_clem/status/1282457648923844609"
+
+- name: "Generative art"
+  tweet_url: "https://twitter.com/miladamilli/status/1275775763329974273"
+  github_url: "https://github.com/miladamilli/artcode_poisson_colors"
+  demo_url: "https://art-code.herokuapp.com/poisson-colors"
+
+- name: "Spotify client"
+  tweet_url: "https://twitter.com/cloud8421/status/1285993792605237249"
+
+- name: "Free LiveView course"
+  tweet_url: "https://twitter.com/clarkware/status/1281277782937554944"
+  demo_url: "https://pragmaticstudio.com/courses/phoenix-liveview"
+
+- name: "Autocomplete with Alpine.js"
+  tweet_url: "https://twitter.com/benvp_/status/1285495072209940481"
+  demo_url: "https://medium.com/@benvp/build-a-performat-autocomplete-using-phoenix-liveview-and-alpine-js-8bcbbed17ba7"
+
+- name: "Modals with Tailwind CSS and Alpine.js"
+  tweet_url: "https://twitter.com/pthompson/status/1285636903115673602"
+  demo_url: "http://blog.pthompson.org/liveview-tailwind-css-alpine-js-modal"
 
