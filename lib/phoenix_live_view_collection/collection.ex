@@ -82,7 +82,7 @@ defmodule LiveViewCollection.Collection do
 
   defp request_embeded_tweets(collection) do
     fetch_tweet = fn tweet_url ->
-      with {:ok, %{body: body}} <-
+      with {:ok, %{body: body, status_code: 200}} <-
              Mojito.request(
                method: :get,
                url: "https://publish.twitter.com/oembed?url=#{tweet_url}&omit_script=true&hide_thread=true"
@@ -90,8 +90,8 @@ defmodule LiveViewCollection.Collection do
            {:ok, tweet} <- Jason.decode(body) do
         tweet
       else
-        {:error, error} ->
-          Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{inspect(error)}" end)
+        _ ->
+          Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{tweet_url}" end)
           nil
       end
     end
