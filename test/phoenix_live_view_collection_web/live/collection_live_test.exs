@@ -91,7 +91,7 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
   test "search", %{conn: conn} do
     assert {:ok, view, html} = live(conn, "/")
 
-    assert html =~ "Search 21 demos"
+    assert html =~ "Search 21 entries"
 
     assert view
            |> element("form")
