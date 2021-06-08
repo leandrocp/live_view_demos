@@ -32,7 +32,7 @@ defmodule LiveViewCollectionWeb.CollectionLive do
     search = Map.get(params, "search", "")
     page = params |> Map.get("page", "1") |> String.to_integer()
     collection = Collection.fetch(search: search, page: page)
-    {:noreply, assign(socket, collection: collection, search: search, current_page: page)}
+    {:noreply, assign(socket, collection: collection, search: search, current_page: page, page_title: search)}
   end
 
   ## Helpers
