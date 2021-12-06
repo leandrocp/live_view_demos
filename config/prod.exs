@@ -13,7 +13,7 @@ config :phoenix_live_view_collection, LiveViewCollectionWeb.Endpoint,
   url: [scheme: "https", host: System.get_env("APP_NAME") <> ".gigalixirapp.com", port: 443],
   cache_static_manifest: "priv/static/cache_manifest.json",
   server: true,
-  check_origin: true,
+  check_origin: true
 
 # Do not print debug messages in production
 config :logger, level: :info
