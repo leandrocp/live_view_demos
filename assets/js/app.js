@@ -1,45 +1,49 @@
-// We need to import the CSS so that webpack will load it.
-// The MiniCssExtractPlugin is used to separate it out into
-// its own CSS file.
-import "../css/app.scss"
+// If you want to use Phoenix channels, run `mix help phx.gen.channel`
+// to get started and then uncomment the line below.
+// import "./user_socket.js"
 
-// webpack automatically bundles all modules in your
-// entry points. Those entry points can be configured
-// in "webpack.config.js".
+// You can include dependencies in two ways.
 //
-// Import deps with the dep name or local files with a relative path, for example:
+// The simplest option is to put them in assets/vendor and
+// import them using relative paths:
 //
-//     import {Socket} from "phoenix"
-//     import socket from "./socket"
+//     import "./vendor/some-package.js"
 //
+// Alternatively, you can `npm install some-package` and import
+// them using a path starting with the package name:
+//
+//     import "some-package"
+//
+
+// Include phoenix_html to handle method=PUT/DELETE in forms and buttons.
 import "phoenix_html"
+// Establish Phoenix Socket and LiveView configuration.
 import {Socket} from "phoenix"
-import topbar from "topbar"
 import {LiveSocket} from "phoenix_live_view"
+import topbar from "../vendor/topbar"
 
 window.twttr = (function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0],
-    t = window.twttr || {};
-  if (d.getElementById(id)) return;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://platform.twitter.com/widgets.js";
-  fjs.parentNode.insertBefore(js, fjs);
+  var js, fjs = d.getElementsByTagName(s)[0], t = window.twttr || {}
+  if (d.getElementById(id)) return
+  js = d.createElement(s)
+  js.id = id
+  js.src = "https://platform.twitter.com/widgets.js"
+  fjs.parentNode.insertBefore(js, fjs)
 
-  t._e = [];
+  t._e = []
   t.ready = function(f) {
-    t._e.push(f);
+    t._e.push(f)
   };
 
-  return t;
-}(document, "script", "twitter-wjs"));
+  return t
+}(document, "script", "twitter-wjs"))
 
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 let Hooks = {}
 Hooks.ReloadTweets = {
   updated() {
-    twttr.widgets.load()
+    window.twttr.widgets.load(document.getElementById("collection-tweets"))
   }
 }
 
@@ -63,6 +67,6 @@ function hideBannerLoading(event) {
   document.getElementById("loading").style.visibility = "hidden"
 }
 
-twttr.ready(function (twttr) {
-  twttr.events.bind('rendered', hideBannerLoading);
-});
+window.twttr.ready(function (twttr) {
+  twttr.events.bind('loaded', hideBannerLoading)
+})

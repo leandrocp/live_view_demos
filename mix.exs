@@ -35,6 +35,7 @@ defmodule LiveViewCollection.MixProject do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
       {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
+      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
       {:floki, "~> 0.32", only: :test},
       {:gettext, "~> 0.18"},
       {:jason, "~> 1.2"},
@@ -59,7 +60,12 @@ defmodule LiveViewCollection.MixProject do
   # See the documentation for `Mix` for more info on aliases.
   defp aliases do
     [
-      setup: ["deps.get", "cmd npm install --prefix assets"]
+      setup: ["deps.get"],
+      "assets.deploy": [
+        "cmd --cd assets npm run deploy",
+        "esbuild default --minify",
+        "phx.digest"
+      ]
     ]
   end
 end
