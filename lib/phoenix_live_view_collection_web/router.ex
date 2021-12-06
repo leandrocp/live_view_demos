@@ -17,7 +17,9 @@ defmodule LiveViewCollectionWeb.Router do
   scope "/", LiveViewCollectionWeb do
     pipe_through :browser
 
-    live "/", CollectionLive, :index
+    live_session :default do
+      live "/", CollectionLive, :index
+    end
   end
 
   # Other scopes may use custom stacks.

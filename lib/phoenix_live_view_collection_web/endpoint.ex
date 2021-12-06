@@ -7,12 +7,8 @@ defmodule LiveViewCollectionWeb.Endpoint do
   @session_options [
     store: :cookie,
     key: "_phoenix_live_view_collection_key",
-    signing_salt: "hRZVrQIH"
+    signing_salt: "jbx8xS1h"
   ]
-
-  socket "/socket", LiveViewCollectionWeb.UserSocket,
-    websocket: true,
-    longpoll: false
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
 
@@ -24,7 +20,7 @@ defmodule LiveViewCollectionWeb.Endpoint do
     at: "/",
     from: :phoenix_live_view_collection,
     gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    only: ~w(assets fonts images favicon.ico robots.txt)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.

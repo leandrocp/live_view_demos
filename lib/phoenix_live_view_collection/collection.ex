@@ -81,25 +81,27 @@ defmodule LiveViewCollection.Collection do
   defp request_embeded_tweets([]), do: {:ok, []}
 
   defp request_embeded_tweets(collection) do
-    fetch_tweet = fn tweet_url ->
-      with {:ok, %{body: body, status_code: 200}} <-
-             Mojito.request(
-               method: :get,
-               url: "https://publish.twitter.com/oembed?url=#{tweet_url}&omit_script=true&hide_thread=true"
-             ),
-           {:ok, tweet} <- Jason.decode(body) do
-        tweet
-      else
-        _ ->
-          Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{tweet_url}" end)
-          nil
-      end
-    end
-
     {:ok,
      collection
-     |> Enum.map(&fetch_tweet.(&1["tweet_url"]))
+     |> Enum.map(&fetch_tweet(&1["tweet_url"]))
      |> Enum.reject(&is_nil/1)}
+  end
+
+  defp fetch_tweet(tweet_url) when is_nil(tweet_url) or tweet_url == "", do: nil
+
+  defp fetch_tweet(tweet_url) when is_binary(tweet_url) do
+    with {:ok, %{body: body, status_code: 200}} <-
+           Mojito.request(
+             method: :get,
+             url: "https://publish.twitter.com/oembed?url=#{tweet_url}&omit_script=true&hide_thread=true&dnt=true"
+           ),
+         {:ok, tweet} <- Jason.decode(body) do
+      tweet
+    else
+      _ ->
+        Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{tweet_url}" end)
+        nil
+    end
   end
 
   @impl GenServer
