@@ -40,11 +40,9 @@ jobs:
 
       - run: mix deps.compile
 
-      - run: mix compile --warnings-as-errors
+      - run: mix compile --all-warnings --warnings-as-errors
 
-      - run: mix test --exclude tmp_dir
-
-      - run: mix test --warnings-as-errors
+      - run: mix test
 
       - run: mix credo --strict
 
