@@ -17,14 +17,10 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
       assert html =~ "entry 15"
       refute html =~ "entry 16"
 
-      {_, {:redirect, %{to: to}}} =
-        reason =
+      html =
         view
         |> element("#page-2")
         |> render_click()
-
-      {:ok, conn} = follow_redirect(reason, conn, to)
-      assert {:ok, _view, html} = live(conn, to)
 
       refute html =~ "entry 15"
       assert html =~ "entry 16"
@@ -36,14 +32,10 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
       assert html =~ "entry 15"
       refute html =~ "entry 16"
 
-      {_, {:redirect, %{to: to}}} =
-        reason =
+      html =
         view
         |> element("#page-next")
         |> render_click()
-
-      {:ok, conn} = follow_redirect(reason, conn, to)
-      assert {:ok, _view, html} = live(conn, to)
 
       refute html =~ "entry 15"
       assert html =~ "entry 16"
@@ -55,14 +47,10 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
       refute html =~ "entry 15"
       assert html =~ "entry 16"
 
-      {_, {:redirect, %{to: to}}} =
-        reason =
+      html =
         view
         |> element("#page-1")
         |> render_click()
-
-      {:ok, conn} = follow_redirect(reason, conn, to)
-      assert {:ok, _view, html} = live(conn, to)
 
       assert html =~ "entry 15"
       refute html =~ "entry 16"
@@ -74,14 +62,10 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
       refute html =~ "entry 15"
       assert html =~ "entry 16"
 
-      {_, {:redirect, %{to: to}}} =
-        reason =
+      html =
         view
         |> element("#page-previous")
         |> render_click()
-
-      {:ok, conn} = follow_redirect(reason, conn, to)
-      assert {:ok, _view, html} = live(conn, to)
 
       assert html =~ "entry 15"
       refute html =~ "entry 16"
