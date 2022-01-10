@@ -1,7 +1,7 @@
 <div id="collection">
-  <div class="min-h-screen bg-gray-100">
+  <div class="min-h-screen">
 
-    <header class="bg-white shadow-sm lg:static lg:overflow-y-visible">
+    <header class="bg-gray-100 shadow-sm lg:static lg:overflow-y-visible">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
 
@@ -43,23 +43,9 @@
       </div>
     </header>
 
-    <%= if @collection != [] do %>
-      <div id="loading" class="fixed top-4 right-10">
-        <span class="inline-flex rounded-md shadow-sm bg-indigo-600">
-          <div class="inline-flex items-center px-4 py-2 border border-transparent text-base leading-6 font-medium rounded-md text-white bg-rose-600 hover:bg-rose-500 focus:border-rose-700 active:bg-rose-700 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
-            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-              <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-              <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-            </svg>
-            Rendering tweets...
-          </div>
-        </span>
-      </div>
-    <% end %>
-
     <main>
       <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-        <div class="flex justify-between bg-white rounded-md shadow p-2 mt-1 mb-4 space-x-4">
+        <div class="flex justify-between p-2 mt-1 mb-4 space-x-4">
           <div>
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-gray-100 text-gray-800">
               <%= live_patch "reset", to: Routes.collection_path(@socket, :index, search: "", page: 1) %>
@@ -113,10 +99,12 @@
           </div>
         <% end %>
 
-        <div id="collection-tweets" class="col-count-1 md:col-count-2 lg:col-count-3 col-gap-lg col-fill-initial" phx-hook="ReloadTweets">
-          <%= for item <- @collection do %>
-            <div class="inline-block align-top w-full">
-              <%= {:safe, item["html"]} %>
+        <div id="collection-tweets" class="col-count-1 md:col-count-2 lg:col-count-3 col-gap-lg col-fill-initial" phx-hook="RenderTweets">
+          <%= for %{"id" => id, "url" => url} <- @collection do %>
+            <div id={"tweet-id-#{id}"} class="tweet inline-block align-top w-full" data-tweetid={id}>
+              <a href={url}>
+                <img id={"facade-#{id}"} src={Routes.static_path(@socket, "/images/tweets/#{id}.png")} style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;" />
+              </a>
             </div>
           <% end %>
         </div>

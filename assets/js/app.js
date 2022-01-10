@@ -38,19 +38,49 @@ window.twttr = (function(d, s, id) {
   return t
 }(document, "script", "twitter-wjs"))
 
+let loadTweets = function() {
+  const elements = document.getElementsByClassName("tweet")
+
+  for (let i=0; i < elements.length; i++) {
+    let el = elements[i]
+
+    window.twttr.widgets.createTweet(el.dataset.tweetid, el, {})
+    .then((r) => {
+      const id = el.dataset.tweetid
+      let facadeEl = document.getElementById("facade-" + id)
+      facadeEl.parentNode.removeChild(facadeEl);
+    })
+  }
+}
+
 let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 let Hooks = {}
-Hooks.ReloadTweets = {
+
+Hooks.CreateTweet = {
+  mounted() {
+    window.twttr.widgets.createTweet(this.el.dataset.tweetid, this.el, {})
+    .then((el) => {
+      const id = this.el.dataset.tweetid
+      let facadeEl = document.getElementById("facade-" + id)
+      facadeEl.parentNode.removeChild(facadeEl);
+    })
+  }
+}
+
+Hooks.RenderTweets = {
+  mounted() {
+    loadTweets()
+  },
   updated() {
-    window.twttr.widgets.load(document.getElementById("collection-tweets"))
+    loadTweets()
   }
 }
 
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
 // Show progress bar on live navigation and form submits
-topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+topbar.config({barColors: {0: "#5B21B6"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", info => topbar.show())
 window.addEventListener("phx:page-loading-stop", info => topbar.hide())
 
@@ -62,11 +92,3 @@ liveSocket.connect()
 // >> liveSocket.enableLatencySim(1000)  // enabled for duration of browser session
 // >> liveSocket.disableLatencySim()
 window.liveSocket = liveSocket
-
-function hideBannerLoading(event) {
-  document.getElementById("loading").style.visibility = "hidden"
-}
-
-window.twttr.ready(function (twttr) {
-  twttr.events.bind('loaded', hideBannerLoading)
-})

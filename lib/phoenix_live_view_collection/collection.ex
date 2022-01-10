@@ -96,7 +96,8 @@ defmodule LiveViewCollection.Collection do
              url: "https://publish.twitter.com/oembed?url=#{tweet_url}&omit_script=true&hide_thread=true&dnt=true"
            ),
          {:ok, tweet} <- Jason.decode(body) do
-      tweet
+      id = tweet_url |> String.split("/") |> List.last()
+      Map.put(tweet, "id", id)
     else
       _ ->
         Logger.error(fn -> "[Collection] Error fetching embeded tweet: #{tweet_url}" end)
