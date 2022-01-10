@@ -5,6 +5,7 @@ defmodule LiveViewCollection.Application do
 
   use Application
 
+  @impl true
   def start(_type, _args) do
     children = [
       # Start the Telemetry supervisor
@@ -32,6 +33,7 @@ defmodule LiveViewCollection.Application do
 
   # Tell Phoenix to update the endpoint configuration
   # whenever the application is updated.
+  @impl true
   def config_change(changed, _new, removed) do
     LiveViewCollectionWeb.Endpoint.config_change(changed, removed)
     :ok
