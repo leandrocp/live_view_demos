@@ -17,7 +17,7 @@ defmodule LiveViewCollectionWeb.CollectionLive do
        search: search,
        collection: collection,
        collection_count: collection_count
-     )}
+     ), temporary_assigns: [collection: []]}
   end
 
   @impl true
