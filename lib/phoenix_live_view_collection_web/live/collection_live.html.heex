@@ -100,11 +100,8 @@
         <% end %>
 
         <div id="collection-tweets" class="col-count-1 md:col-count-2 lg:col-count-3 col-gap-lg col-fill-initial" phx-hook="RenderTweets">
-          <%= for %{"id" => id, "url" => url} <- @collection do %>
+          <%= for %{"id" => id} <- @collection do %>
             <div id={"tweet-id-#{id}"} class="tweet inline-block align-top w-full" data-tweetid={id}>
-              <a href={url}>
-                <img id={"facade-#{id}"} src={Routes.static_path(@socket, "/images/tweets/#{id}.png")} style="display: flex; max-width: 550px; width: 100%; margin-top: 10px; margin-bottom: 10px;" />
-              </a>
             </div>
           <% end %>
         </div>
