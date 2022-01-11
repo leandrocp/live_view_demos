@@ -1,7 +1,7 @@
-<div id="collection">
+<div id="collection" class="bg-gray-100">
   <div class="min-h-screen">
 
-    <header class="bg-gray-100 shadow-sm lg:static lg:overflow-y-visible">
+    <header class="bg-white shadow-sm lg:static lg:overflow-y-visible">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="relative flex justify-between xl:grid xl:grid-cols-12 lg:gap-8">
 
@@ -102,6 +102,7 @@
         <div id="collection-tweets" class="col-count-1 md:col-count-2 lg:col-count-3 col-gap-lg col-fill-initial" phx-hook="RenderTweets">
           <%= for %{"id" => id} <- @collection do %>
             <div id={"tweet-id-#{id}"} class="tweet inline-block align-top w-full" data-tweetid={id}>
+              <span id={"tweet-spinner-#{id}"} class="loader"></span>
             </div>
           <% end %>
         </div>

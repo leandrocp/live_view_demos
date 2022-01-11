@@ -10,22 +10,10 @@ const renderTweets = function() {
     let el = elements[i]
     let id = el.dataset.tweetid
     window.twttr.widgets.createTweetEmbed(id, el, {dnt: true, conversation: "none"})
-  }
-}
-
-const injectScript = function(callback) {
-  let script = document.createElement("script")
-  script.setAttribute("src", "//platform.twitter.com/widgets.js")
-  script.setAttribute("async", true)
-  script.onload = () => callback()
-  document.body.appendChild(script)
-}
-
-const load = function() {
-  if (!window.twttr) {
-    injectScript(() => renderTweets())
-  } else {
-    renderTweets()
+    .then(() => {
+      let spinnerEl = document.getElementById("tweet-spinner-" + id)
+      spinnerEl.parentNode.removeChild(spinnerEl)
+    })
   }
 }
 
@@ -35,10 +23,10 @@ let Hooks = {}
 
 Hooks.RenderTweets = {
   mounted() {
-    load()
+    window.twttr.ready((twttr) => renderTweets())
   },
   updated() {
-    load()
+    window.twttr.ready((twttr) => renderTweets())
   }
 }
 
