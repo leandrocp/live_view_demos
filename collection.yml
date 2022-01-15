@@ -71,10 +71,6 @@
   tweet_url: "https://twitter.com/geolessel/status/1108382138192134144"
   github_url:
 
-- name: "Table editor"
-  tweet_url: "https://twitter.com/pihurt/status/1106920643604475907"
-  github_url: "https://github.com/hurty/phoenix_live_view_example/blob/master/lib/demo_web/live/tables_live.ex"
-
 - name: "Adventure Capitalist clone"
   tweet_url: "https://twitter.com/ericteubert/status/1107290579396907008"
   github_url: "https://github.com/eteubert/open_adventure_capitalist/blob/master/lib/open_adventure_capitalist_web/live/game_live.ex"
@@ -210,10 +206,6 @@
 - name: "Monitoring dashboard"
   tweet_url: "https://twitter.com/kerryb/status/1134414659660988416"
   github_url:
-
-- name: "Multi-step Form"
-  tweet_url: "https://twitter.com/tuacker/status/1134374836338352128"
-  github_url: "https://github.com/tuacker/phoenix_live_view_form_steps/"
 
 - name: "Piano roll"
   tweet_url: "https://twitter.com/thibaut_barrere/status/1135477796908744705"
@@ -399,9 +391,6 @@
   github_url: "https://github.com/CassiusPacheco/ex_micro_blog"
   demo_url: "https://exmicroblog.herokuapp.com/"
 
-- name: "LiveView with Temple template library"
-  tweet_url: "https://twitter.com/shritesh/status/1252016488074088448"
-
 - name: "Real-time SVG chart"
   tweet_url: "https://twitter.com/stevegraham/status/1255566636838338561"
 
@@ -418,10 +407,6 @@
 
 - name:  "LiveView diff algorithm"
   tweet_url: "https://twitter.com/_fifwb/status/1276954973830393858"
-
-- name: "Real-time accessibility and HTML validator"
-  tweet_url: "https://twitter.com/jaimeiniesta/status/1279103234674700290"
-  demo_url: "https://vimeo.com/435134538"
 
 - name: "Bookmarking with Azure Cognitive"
   tweet_url: "https://twitter.com/_clem/status/1282457648923844609"
@@ -467,7 +452,6 @@
 - tweet_url: "https://twitter.com/sprsmpl/status/1381810172474064899"
 - tweet_url: "https://twitter.com/JonoYeong/status/1383808793868267521"
 - tweet_url: "https://twitter.com/mcrumm/status/1385342905515003904"
-- tweet_url: "https://twitter.com/peregrine/status/1385665640007147521"
 - tweet_url: "https://twitter.com/davydog187/status/1385702764555247622"
 - tweet_url: "https://twitter.com/AniC_dev/status/1387369625856483328"
 - tweet_url: "https://twitter.com/germsvel/status/1388090000718188545"
@@ -477,7 +461,6 @@
 - tweet_url: "https://twitter.com/germsvel/status/1390653516193148929"
 - tweet_url: "https://twitter.com/dashbit/status/1390666206491910147"
 - tweet_url: "https://twitter.com/MNishiguchiDC/status/1390658051267563520"
-- tweet_url: "https://twitter.com/alvisesus/status/138710136493796968"
 - tweet_url: "https://twitter.com/tmuxbee/status/1391676259873210369"
 - tweet_url: "https://twitter.com/arathunku/status/1387851415381553157"
 - tweet_url: "https://twitter.com/doomspork/status/1394024216551301120"
