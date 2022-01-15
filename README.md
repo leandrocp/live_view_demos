@@ -1,23 +1,13 @@
-# LiveViewCollection
+# Phoenix LiveView Collection
 
-To start your Phoenix server:
+[Phoenix LiveView](https://www.phoenixframework.org/) is awesome and people enjoy building all kinds of projects on that stack 💯
+
+Visit [liveviewcollection.com](https://liveviewcollection.com/), tweet your demo, project or article, and [contribute](https://github.com/leandrocp/phoenix_live_view_collection/blob/main/CONTRIBUTING.md)!
+
+
+# Running locally
 
   * Install dependencies with `mix deps.get`
-  * Install Node.js dependencies with `npm install` inside the `assets` directory
-  * Start Phoenix endpoint with `mix phx.server`
+  * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
 Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
-
-Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
-
-## Roadmap
-
-- [ ] Loading animation
-- [ ] Sanitize search input
-- [ ] Add link to our github repo
-- [ ] 4 columns + increase entries per page for larger screens
-- [ ] Display related github repo/gist
-- [ ] Display demo link
-- [ ] Allow to change per page pagination
-- [ ] https://plausible.io/
-- [ ] https://github.com/phoenixframework/phoenix_live_dashboard/
