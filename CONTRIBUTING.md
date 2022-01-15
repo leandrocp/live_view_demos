@@ -6,10 +6,8 @@ To submit a new entry to the collection, edit the file [collection.yml](https://
 and add a new tweet URL like so:
 
 ```yaml
-- tweet_url: "https://twitter.com/chris_mccord/status/1106291353670045696"
+- "https://twitter.com/chris_mccord/status/1106291353670045696"
 ```
-
-Name, description, and others attributes aren't necessary as they're deprecated.
 
 ## Bug reports
 

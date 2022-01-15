@@ -83,7 +83,7 @@ defmodule LiveViewCollection.Collection do
   defp request_embeded_tweets(collection) do
     {:ok,
      collection
-     |> Enum.map(&fetch_tweet(&1["tweet_url"]))
+     |> Enum.map(&fetch_tweet(&1))
      |> Enum.reject(&is_nil/1)}
   end
 
