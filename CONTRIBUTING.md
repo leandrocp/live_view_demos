@@ -6,7 +6,7 @@ To submit a new entry to the collection, edit the file [collection.yml](https://
 and add a new tweet URL like so:
 
 ```yaml
-- "https://twitter.com/chris_mccord/status/1106291353670045696"
+- https://twitter.com/chris_mccord/status/1106291353670045696
 ```
 
 ## Bug reports
