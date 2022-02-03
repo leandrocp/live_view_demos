@@ -29,7 +29,7 @@ defmodule LiveViewCollection.Collection do
   @spec pages(String.t()) :: pos_integer()
   def pages(search) do
     collection_count = count(search)
-    pages = (collection_count / @default_page_size()) |> Float.ceil() |> round()
+    pages = (collection_count / @default_page_size) |> Float.ceil() |> round()
     if pages <= 1, do: 1, else: pages
   end
 
@@ -65,6 +65,7 @@ defmodule LiveViewCollection.Collection do
   def handle_info(:load_collection, _state) do
     collection =
       with {:ok, collection} <- YamlElixir.read_from_file(Path.join(File.cwd!(), "collection.yml")),
+           collection <- Enum.uniq(collection),
            :ok <- Logger.debug(fn -> "[Collection] Loading #{length(collection)} entries from collection.yml" end),
            {:ok, collection} <- request_embeded_tweets(collection),
            :ok <- Logger.debug(fn -> "[Collection] Loaded #{length(collection)} entries from twitter" end) do
@@ -140,6 +141,6 @@ defmodule LiveViewCollection.Collection do
   end
 
   defp do_paginate(collection, page) do
-    Enum.slice(collection, (page - 1) * @default_page_size(), @default_page_size())
+    Enum.slice(collection, (page - 1) * @default_page_size, @default_page_size)
   end
 end
