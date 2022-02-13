@@ -43,12 +43,12 @@ COPY config/config.exs config/${MIX_ENV}.exs config/
 RUN mix deps.compile
 
 COPY priv priv
-
 COPY lib lib
 COPY assets assets
 
 # compile assets
-RUN mix assets.deploy
+RUN npm install --prefix assets && \
+    mix assets.deploy
 
 # Compile the release
 COPY collection.yml rel/overlays/bin/collection.yml
