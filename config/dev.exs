@@ -1,5 +1,7 @@
 import Config
 
+config :phoenix_live_view_collection, env: :dev
+
 # For development, we disable any cache and enable
 # debugging and code reloading.
 #
