@@ -8,7 +8,7 @@ defmodule LiveViewCollection.Application do
     children = [
       LiveViewCollectionWeb.Telemetry,
       {Phoenix.PubSub, name: LiveViewCollection.PubSub},
-      LiveViewCollectionWeb.Endpoint,
+      LiveViewCollectionWeb.Endpoint
     ]
 
     children =
