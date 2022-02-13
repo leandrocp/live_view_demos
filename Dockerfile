@@ -47,8 +47,8 @@ COPY lib lib
 COPY assets assets
 
 # compile assets
-RUN npm install --prefix assets
-RUN mix assets.deploy
+RUN npm install --prefix assets && \
+    mix assets.deploy
 
 # Compile the release
 COPY collection.yml rel/overlays/bin/collection.yml
