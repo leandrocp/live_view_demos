@@ -3,7 +3,7 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
   import Phoenix.LiveViewTest
   alias LiveViewCollection.Collection
 
-  @entries for i <- 1..21, do: %{"html" => "entry #{i}"}
+  @entries for tweet_id <- 1..21, do: %{"id" => tweet_id}
 
   setup do
     start_supervised!({Collection, override_entries: @entries}, restart: :temporary)
@@ -14,61 +14,61 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
     test "next clicking on page number", %{conn: conn} do
       assert {:ok, view, html} = live(conn, "/")
 
-      assert html =~ "entry 15"
-      refute html =~ "entry 16"
+      assert html =~ "tweet-id-15"
+      refute html =~ "tweet-id-16"
 
       html =
         view
         |> element("#page-2")
         |> render_click()
 
-      refute html =~ "entry 15"
-      assert html =~ "entry 16"
+      refute html =~ "tweet-id-15"
+      assert html =~ "tweet-id-16"
     end
 
     test "next clicking on next button", %{conn: conn} do
       assert {:ok, view, html} = live(conn, "/")
 
-      assert html =~ "entry 15"
-      refute html =~ "entry 16"
+      assert html =~ "tweet-id-15"
+      refute html =~ "tweet-id-16"
 
       html =
         view
         |> element("#page-next")
         |> render_click()
 
-      refute html =~ "entry 15"
-      assert html =~ "entry 16"
+      refute html =~ "tweet-id-15"
+      assert html =~ "tweet-id-16"
     end
 
     test "previous clicking on page number", %{conn: conn} do
       assert {:ok, view, html} = live(conn, "/?page=2")
 
-      refute html =~ "entry 15"
-      assert html =~ "entry 16"
+      refute html =~ "tweet-id-15"
+      assert html =~ "tweet-id-16"
 
       html =
         view
         |> element("#page-1")
         |> render_click()
 
-      assert html =~ "entry 15"
-      refute html =~ "entry 16"
+      assert html =~ "tweet-id-15"
+      refute html =~ "tweet-id-16"
     end
 
     test "previous clicking on previous button", %{conn: conn} do
       assert {:ok, view, html} = live(conn, "/?page=2")
 
-      refute html =~ "entry 15"
-      assert html =~ "entry 16"
+      refute html =~ "tweet-id-15"
+      assert html =~ "tweet-id-16"
 
       html =
         view
         |> element("#page-previous")
         |> render_click()
 
-      assert html =~ "entry 15"
-      refute html =~ "entry 16"
+      assert html =~ "tweet-id-15"
+      refute html =~ "tweet-id-16"
     end
   end
 
@@ -79,6 +79,6 @@ defmodule PhoenixLiveViewCollectionWeb.Live.CollectionLiveTest do
 
     assert view
            |> element("form")
-           |> render_change(%{search: "entry 21"}) =~ "entry 21"
+           |> render_change(%{search: "tweet-id-21"}) =~ "tweet-id-21"
   end
 end
