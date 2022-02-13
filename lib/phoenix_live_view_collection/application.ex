@@ -12,7 +12,7 @@ defmodule LiveViewCollection.Application do
     ]
 
     children =
-      if Mix.env() == :test do
+      if Application.get_env(:phoenix_live_view_collection, :env) == :test do
         children
       else
         children ++ [{LiveViewCollection.Collection, []}]
