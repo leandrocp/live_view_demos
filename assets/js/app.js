@@ -34,7 +34,16 @@ let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToke
 
 topbar.config({barColors: {0: "#5B21B6"}, shadowColor: "rgba(0, 0, 0, .3)"})
 window.addEventListener("phx:page-loading-start", info => topbar.show())
-window.addEventListener("phx:page-loading-stop", info => topbar.hide())
+
+window.addEventListener("phx:page-loading-stop", function(info){
+  topbar.hide()
+
+  if (!window.twttr.widgets) {
+    let el = document.getElementById('loading-error')
+    el.classList.remove('hidden')
+  }
+})
+
 
 liveSocket.connect()
 window.liveSocket = liveSocket
