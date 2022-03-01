@@ -47,6 +47,8 @@ defmodule LiveViewCollectionWeb do
       use Phoenix.LiveView,
         layout: {LiveViewCollectionWeb.LayoutView, "live.html"}
 
+      on_mount PhoenixProfiler
+
       unquote(view_helpers())
     end
   end

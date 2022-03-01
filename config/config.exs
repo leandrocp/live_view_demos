@@ -15,7 +15,8 @@ config :phoenix_live_view_collection, LiveViewCollectionWeb.Endpoint,
   url: [host: "localhost"],
   render_errors: [view: LiveViewCollectionWeb.ErrorView, accepts: ~w(html json), layout: false],
   pubsub_server: LiveViewCollection.PubSub,
-  live_view: [signing_salt: "3pMIgCVs"]
+  live_view: [signing_salt: "3pMIgCVs"],
+  phoenix_profiler: [server: LiveViewCollection.Profiler]
 
 # Configure esbuild (the version is required)
 config :esbuild,

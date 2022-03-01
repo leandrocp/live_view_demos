@@ -7,6 +7,7 @@ defmodule LiveViewCollection.Application do
   def start(_type, _args) do
     children = [
       LiveViewCollectionWeb.Telemetry,
+      {PhoenixProfiler, name: LiveViewCollection.Profiler},
       {Phoenix.PubSub, name: LiveViewCollection.PubSub},
       LiveViewCollectionWeb.Endpoint
     ]

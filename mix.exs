@@ -49,6 +49,7 @@ defmodule LiveViewCollection.MixProject do
       {:phoenix_live_dashboard, "~> 0.6"},
       {:phoenix_live_reload, "~> 1.3", only: :dev},
       {:phoenix_live_view, "~> 0.17"},
+      {:phoenix_profiler, "~> 0.1.0", github: "mcrumm/phoenix_profiler"},
       {:plug_cowboy, "~> 2.5"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
