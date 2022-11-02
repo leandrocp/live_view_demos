@@ -71,6 +71,9 @@
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
               <%= live_patch "livebook", to: Routes.collection_path(@socket, :index, search: "livebook", page: 1) %>
             </span>
+            <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium bg-purple-100 text-purple-800">
+              <%= live_patch "native", to: Routes.collection_path(@socket, :index, search: "native", page: 1) %>
+            </span>
           </div>
           <div>
             <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium">
