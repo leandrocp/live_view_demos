@@ -5,9 +5,8 @@ defmodule LiveViewCollection.MixProject do
     [
       app: :phoenix_live_view_collection,
       version: "0.1.0",
-      elixir: "~> 1.7",
+      elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
-      compilers: [:phoenix, :gettext] ++ Mix.compilers(),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
       deps: deps(),
@@ -38,22 +37,21 @@ defmodule LiveViewCollection.MixProject do
   defp deps do
     [
       {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.1", only: [:dev, :test], runtime: false},
-      {:esbuild, "~> 0.2", runtime: Mix.env() == :dev},
-      {:floki, "~> 0.32", only: :test},
-      {:gettext, "~> 0.18"},
-      {:jason, "~> 1.2"},
+      {:dialyxir, "~> 1.2", only: [:dev, :test], runtime: false},
+      {:esbuild, "~> 0.6", runtime: Mix.env() == :dev},
+      {:floki, "~> 0.34", only: :test},
+      {:gettext, "~> 0.21"},
+      {:jason, "~> 1.4"},
       {:mojito, "~> 0.7"},
-      {:phoenix, "~> 1.6"},
-      {:phoenix_html, "~> 3.1"},
-      {:phoenix_live_dashboard, "~> 0.6"},
-      {:phoenix_live_reload, "~> 1.3", only: :dev},
-      {:phoenix_live_view, "~> 0.17"},
-      {:phoenix_profiler, "~> 0.1.0", github: "mcrumm/phoenix_profiler"},
-      {:plug_cowboy, "~> 2.5"},
+      {:phoenix, "1.6.6"},
+      {:phoenix_html, "~> 3.2"},
+      {:phoenix_live_dashboard, "0.6.2"},
+      {:phoenix_live_reload, "~> 1.4", only: :dev},
+      {:phoenix_live_view, "0.17.5"},
+      {:plug_cowboy, "~> 2.6"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
-      {:yaml_elixir, "~> 2.8"}
+      {:yaml_elixir, "~> 2.9"}
     ]
   end
 

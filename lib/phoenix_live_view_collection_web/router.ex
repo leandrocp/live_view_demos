@@ -40,9 +40,7 @@ defmodule LiveViewCollectionWeb.Router do
     scope "/" do
       pipe_through :browser
 
-      live_dashboard "/dashboard",
-        metrics: LiveViewCollectionWeb.Telemetry,
-        additional_pages: [_profiler: {PhoenixProfiler.Dashboard, []}]
+      live_dashboard "/dashboard", metrics: LiveViewCollectionWeb.Telemetry
     end
   end
 end
