@@ -120,9 +120,9 @@
           </div>
         <% end %>
 
-        <div id="collection-tweets" class="col-count-1 md:col-count-2 lg:col-count-3 col-gap-lg col-fill-initial" phx-hook="RenderTweets">
+        <div id="collection-tweets" class="columns-1 md:columns-2 lg:columns-3" phx-hook="RenderTweets">
           <%= for %{"id" => id} <- @collection do %>
-            <div id={"tweet-id-#{id}"} class="tweet inline-block align-top w-full" data-tweetid={id}>
+            <div id={"tweet-id-#{id}"} class="tweet aspect-auto" data-tweetid={id}>
               <span id={"tweet-spinner-#{id}"} class="loader"></span>
             </div>
           <% end %>
