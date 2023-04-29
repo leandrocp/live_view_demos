@@ -1,43 +1,56 @@
 defmodule LiveViewCollectionWeb.CollectionLive do
-  @moduledoc "Collection Live Page"
   use LiveViewCollectionWeb, :live_view
   require Logger
-  alias LiveViewCollection.Collection
+
+  @default_per_page 15
 
   @impl true
-  def mount(_params, _session, socket) do
-    current_page = 1
-    search = ""
-    collection = Collection.fetch(page: current_page, search: search)
-    collection_count = Collection.count()
+  def mount(params, _session, socket) do
+    count = LiveViewCollection.count()
 
     {:ok,
      assign(socket,
-       current_page: current_page,
-       search: search,
-       collection: collection,
-       collection_count: collection_count
-     ), temporary_assigns: [collection: []]}
+       current_page: 1,
+       query: "",
+       tweets: fetch(params),
+       total_count: count,
+       total_query_count: count
+     ), temporary_assigns: [tweets: []]}
   end
 
   @impl true
-  def handle_event("search", %{"search" => search}, socket) do
-    path = Routes.collection_path(socket, :index, search: search, page: 1)
+  def handle_event("search", %{"query" => query}, socket) do
+    path = Routes.collection_path(socket, :index, query: query, page: 1)
     socket = push_patch(socket, to: path)
     {:noreply, socket}
   end
 
   @impl true
   def handle_params(params, _url, socket) do
-    search = Map.get(params, "search", "")
+    query = Map.get(params, "query", "")
     page = params |> Map.get("page", "1") |> String.to_integer()
-    collection = Collection.fetch(search: search, page: page)
-    {:noreply, assign(socket, collection: collection, search: search, current_page: page, page_title: search)}
+
+    tweets = fetch(params)
+    total_query_count = LiveViewCollection.count(query)
+
+    {:noreply,
+     assign(socket,
+       page_title: query,
+       current_page: page,
+       query: query,
+       tweets: tweets,
+       total_query_count: total_query_count
+     )}
   end
 
-  ## Helpers
+  def fetch(params) do
+    query = Map.get(params, "query", "")
+    page = params |> Map.get("page", "1") |> String.to_integer()
+    LiveViewCollection.fetch(query: query, page: page, per_page: @default_per_page)
+  end
 
-  def pages(search) do
-    Collection.pages(search)
+  def pages(total_query_count) do
+    pages = (total_query_count / @default_per_page) |> Float.ceil() |> round()
+    if pages <= 1, do: 1, else: pages
   end
 end

@@ -7,20 +7,19 @@ defmodule LiveViewCollection.Application do
   def start(_type, _args) do
     children = [
       LiveViewCollectionWeb.Telemetry,
-      {PhoenixProfiler, name: LiveViewCollection.Profiler},
       {Phoenix.PubSub, name: LiveViewCollection.PubSub},
-      LiveViewCollectionWeb.Endpoint
+      LiveViewCollectionWeb.Endpoint,
+      {Task.Supervisor, name: LiveViewCollection.TaskSupervisor}
     ]
 
-    children =
-      if Application.get_env(:phoenix_live_view_collection, :env) == :test do
-        children
-      else
-        children ++ [{LiveViewCollection.Collection, []}]
-      end
+    :ets.new(:phx_lv_collection, [:ordered_set, :named_table, :public, read_concurrency: true])
 
     opts = [strategy: :one_for_one, name: LiveViewCollection.Supervisor]
-    Supervisor.start_link(children, opts)
+    sup = Supervisor.start_link(children, opts)
+
+    :ok = LiveViewCollection.load_collection()
+
+    sup
   end
 
   @impl true
