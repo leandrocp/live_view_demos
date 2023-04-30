@@ -1,10 +1,10 @@
-defmodule LiveViewCollection do
+defmodule LiveViewDemos do
   import Ecto.Changeset
   require Logger
-  alias LiveViewCollection.Tweet
-  alias LiveViewCollection.TaskSupervisor
+  alias LiveViewDemos.Tweet
+  alias LiveViewDemos.TaskSupervisor
 
-  @ets_table :phx_lv_collection
+  @ets_table :live_view_demos
 
   def load_collection do
     Path.join(File.cwd!(), "collection.yml")
@@ -20,7 +20,11 @@ defmodule LiveViewCollection do
         Logger.debug("Loading tweet #{tweet.url}")
 
         "https://publish.twitter.com/oembed?url=#{tweet.url}&omit_script=true&limit=1&hide_thread=true&dnt=true"
-        |> Req.get!(pool_timeout: 10_000, receive_timeout: 30_000, connect_options: [timeout: 60_000])
+        |> Req.get!(
+          pool_timeout: 10_000,
+          receive_timeout: 30_000,
+          connect_options: [timeout: 60_000]
+        )
         |> Map.get(:body)
         |> insert_tweet!()
       end)

@@ -1,12 +1,12 @@
-defmodule LiveViewCollectionWeb.CollectionLiveTest do
-  use LiveViewCollectionWeb.ConnCase
+defmodule LiveViewDemosWeb.TweetsLiveTest do
+  use LiveViewDemosWeb.ConnCase
   import Phoenix.LiveViewTest
 
   @entries for tweet_id <- 100..121, do: %{"url" => "//#{tweet_id}", "html" => "<div></div>"}
 
   setup do
-    for entry <- @entries, do: {:ok, _} = LiveViewCollection.insert_tweet!(entry)
-    on_exit(fn -> :ets.delete_all_objects(:phx_lv_collection) end)
+    for entry <- @entries, do: {:ok, _} = LiveViewDemos.insert_tweet!(entry)
+    on_exit(fn -> :ets.delete_all_objects(:live_view_demos) end)
     :ok
   end
 

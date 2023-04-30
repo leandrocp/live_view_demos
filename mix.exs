@@ -1,25 +1,21 @@
-defmodule LiveViewCollection.MixProject do
+defmodule LiveViewDemos.MixProject do
   use Mix.Project
 
   def project do
     [
-      app: :phoenix_live_view_collection,
+      app: :live_view_demos,
       version: "0.1.0",
       elixir: "~> 1.14",
       elixirc_paths: elixirc_paths(Mix.env()),
       start_permanent: Mix.env() == :prod,
       aliases: aliases(),
-      deps: deps(),
-      dialyzer: [
-        plt_file: {:no_warn, "priv/plts/dialyzer.plt"},
-        ignore_warnings: ".dialyzer_ignore.exs"
-      ]
+      deps: deps()
     ]
   end
 
   def application do
     [
-      mod: {LiveViewCollection.Application, []},
+      mod: {LiveViewDemos.Application, []},
       extra_applications: [:logger, :runtime_tools]
     ]
   end
@@ -29,31 +25,31 @@ defmodule LiveViewCollection.MixProject do
 
   defp deps do
     [
-      {:credo, "~> 1.6", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 1.2", only: [:dev, :test], runtime: false},
       {:ecto, "~> 3.9"},
-      {:esbuild, "~> 0.6", runtime: Mix.env() == :dev},
-      {:floki, "~> 0.34", only: :test},
-      {:gettext, "~> 0.21"},
-      {:jason, "~> 1.4"},
-      {:phoenix, "1.6.6"},
-      {:phoenix_html, "~> 3.2"},
-      {:phoenix_live_dashboard, "0.6.2"},
-      {:phoenix_live_reload, "~> 1.4", only: :dev},
-      {:phoenix_live_view, "0.17.5"},
-      {:plug_cowboy, "~> 2.6"},
-      {:req, "~> 0.3"},
-      {:tailwind, "~> 0.1", runtime: Mix.env() == :dev},
+      {:phoenix, "~> 1.7.2"},
+      {:phoenix_html, "~> 3.3"},
+      {:phoenix_live_reload, "~> 1.2", only: :dev},
+      {:phoenix_live_view, "~> 0.18.16"},
+      {:floki, ">= 0.30.0", only: :test},
+      {:phoenix_live_dashboard, "~> 0.7.2"},
+      {:esbuild, "~> 0.7", runtime: Mix.env() == :dev},
+      {:tailwind, "~> 0.2.0", runtime: Mix.env() == :dev},
+      {:finch, "~> 0.13"},
       {:telemetry_metrics, "~> 0.6"},
       {:telemetry_poller, "~> 1.0"},
+      {:gettext, "~> 0.20"},
+      {:jason, "~> 1.2"},
+      {:plug_cowboy, "~> 2.5"},
+      {:req, "~> 0.3"},
       {:yaml_elixir, "~> 2.9"}
     ]
   end
 
   defp aliases do
     [
-      setup: ["deps.get", "assets.setup"],
+      setup: ["deps.get", "assets.setup", "assets.build"],
       "assets.setup": ["tailwind.install --if-missing", "esbuild.install --if-missing"],
+      "assets.build": ["tailwind default", "esbuild default"],
       "assets.deploy": ["tailwind default --minify", "esbuild default --minify", "phx.digest"]
     ]
   end

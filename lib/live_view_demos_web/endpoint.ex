@@ -1,13 +1,14 @@
-defmodule LiveViewCollectionWeb.Endpoint do
-  use Phoenix.Endpoint, otp_app: :phoenix_live_view_collection
+defmodule LiveViewDemosWeb.Endpoint do
+  use Phoenix.Endpoint, otp_app: :live_view_demos
 
   # The session will be stored in the cookie and signed,
   # this means its contents can be read but not tampered with.
   # Set :encryption_salt if you would also like to encrypt it.
   @session_options [
     store: :cookie,
-    key: "_phoenix_live_view_collection_key",
-    signing_salt: "jbx8xS1h"
+    key: "_live_view_demos_key",
+    signing_salt: "nam1Cgjq",
+    same_site: "Lax"
   ]
 
   socket "/live", Phoenix.LiveView.Socket, websocket: [connect_info: [session: @session_options]]
@@ -18,9 +19,9 @@ defmodule LiveViewCollectionWeb.Endpoint do
   # when deploying your static files in production.
   plug Plug.Static,
     at: "/",
-    from: :phoenix_live_view_collection,
+    from: :live_view_demos,
     gzip: false,
-    only: ~w(assets fonts images favicon.ico robots.txt)
+    only: LiveViewDemosWeb.static_paths()
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
@@ -45,5 +46,5 @@ defmodule LiveViewCollectionWeb.Endpoint do
   plug Plug.MethodOverride
   plug Plug.Head
   plug Plug.Session, @session_options
-  plug LiveViewCollectionWeb.Router
+  plug LiveViewDemosWeb.Router
 end

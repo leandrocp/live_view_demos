@@ -10,14 +10,13 @@ const renderTweets = function() {
     let el = elements[i]
     let id = el.dataset.tweetid
     window.twttr.widgets.createTweetEmbed(id, el, {dnt: true, conversation: "none"})
-    .then(() => {
+    .then((el) => {
+      el.style = 'display: flex; max-width: 550px; width: 100%; margin-bottom: 20px;'
       let spinnerEl = document.getElementById("tweet-spinner-" + id)
       spinnerEl.parentNode.removeChild(spinnerEl)
     })
   }
 }
-
-let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 
 let Hooks = {}
 
@@ -30,20 +29,24 @@ Hooks.RenderTweets = {
   }
 }
 
+let csrfToken = document.querySelector("meta[name='csrf-token']").getAttribute("content")
 let liveSocket = new LiveSocket("/live", Socket, {params: {_csrf_token: csrfToken}, hooks: Hooks})
 
-topbar.config({barColors: {0: "#5B21B6"}, shadowColor: "rgba(0, 0, 0, .3)"})
-window.addEventListener("phx:page-loading-start", info => topbar.show())
+topbar.config({barColors: {0: "#29d"}, shadowColor: "rgba(0, 0, 0, .3)"})
+
+window.addEventListener("phx:page-loading-start", _info => topbar.show(300))
 
 window.addEventListener("phx:page-loading-stop", function(info){
   topbar.hide()
 
-  if (!window.twttr.widgets) {
-    let el = document.getElementById('loading-error')
-    el.classList.remove('hidden')
-  }
+  setTimeout(() => {
+    if (!window.twttr.widgets) {
+      let el = document.getElementById('loading-error')
+      el.classList.remove('hidden')
+    }
+  }, 3000)
 })
 
-
 liveSocket.connect()
+
 window.liveSocket = liveSocket

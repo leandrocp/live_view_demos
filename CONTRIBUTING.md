@@ -1,8 +1,8 @@
-# Contributing to Phoenix LiveView Collection
+# Contributing to Phoenix LiveView Demos
 
-## Collection
+## Tweets
 
-To submit a new entry to the collection, edit the file [collection.yml](https://github.com/leandrocp/phoenix_live_view_collection/blob/main/collection.yml)
+To submit a new tweet to the collection, edit the file [collection.yml](https://github.com/leandrocp/phoenix_live_view_collection/blob/main/collection.yml)
 and add a new tweet URL like so:
 
 ```yaml

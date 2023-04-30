@@ -1,8 +1,8 @@
-# Phoenix LiveView Collection
+# Phoenix LiveView Demos
 
 [Phoenix LiveView](https://www.phoenixframework.org/) is awesome and people enjoy building all kinds of projects on that stack 💯
 
-Visit [liveviewdemos.com](https://liveviewdemos.com/), tweet your demo, project or article, and [contribute](https://github.com/leandrocp/phoenix_live_view_collection/blob/main/CONTRIBUTING.md)!
+Visit [liveviewdemos.com](https://liveviewdemos.com/), tweet your demo, project or article, and [contribute](https://github.com/leandrocp/live_view_demos/blob/main/CONTRIBUTING.md)!
 
 
 # Running locally
